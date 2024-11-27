@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média de Notas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .input-field {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .input-field label {
+            font-size: 14px;
+            color: #555;
+        }
+        .input-field input {
+            width: 100px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Calculadora de Média de Notas</h2>
+    <div class="input-field">
+        <label for="nota1">Nota 1:</label>
+        <input type="number" id="nota1" placeholder="0" min="0" step="0.1">
+    </div>
+    <div class="input-field">
+        <label for="nota2">Nota 2:</label>
+        <input type="number" id="nota2" placeholder="0" min="0" step="0.1">
+    </div>
+    <div class="input-field">
+        <label for="nota3">Nota 3:</label>
+        <input type="number" id="nota3" placeholder="0" min="0" step="0.1">
+    </div>
+    <div class="input-field">
+        <label for="nota4">Nota 4:</label>
+        <input type="number" id="nota4" placeholder="0" min="0" step="0.1">
+    </div>
+
+    <button onclick="calcularMedia()">Calcular Média</button>
+
+    <div class="result" id="resultado">
+        <!-- Resultado será exibido aqui -->
+    </div>
+</div>
+
+<script>
+    function calcularMedia() {
+        // Pega as notas inseridas pelos usuários
+        let nota1 = parseFloat(document.getElementById('nota1').value);
+        let nota2 = parseFloat(document.getElementById('nota2').value);
+        let nota3 = parseFloat(document.getElementById('nota3').value);
+        let nota4 = parseFloat(document.getElementById('nota4').value);
+        
+        // Verifica se todas as notas são válidas (não NaN)
+        if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)) {
+            alert("Por favor, insira todas as notas corretamente.");
+            return;
+        }
+        
+        // Calcula a média
+        let media = (nota1 + nota2 + nota3 + nota4) / 4;
+        
+        // Exibe o resultado
+        document.getElementById('resultado').innerText = "Média: " + media.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
